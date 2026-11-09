@@ -1,0 +1,217 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20px;
+}
+
+.add-button {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    font-weight: bold;
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;
+    background-color: cornsilk;
+}
+
+.tables-contain {
+    display: flex;
+    flex-direction: row;
+}
+
+section>div:first-child {
+    flex: 0 0 200px;
+}
+
+section>div:last-child {
+    flex: 1;
+}
+
+.categories-table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.categories-table__header {
+    padding: 6px;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+
+.categories-table__body {
+    padding-left: 5px;
+}
+
+.sites-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.sites-table__header {
+    padding: 15px;
+    background-color: aliceblue;
+    border: 1px solid black;
+}
+
+.sites-table__body {
+    border: 1px solid black;
+    height: 40px;
+}
+
+a {
+    color: black;
+}
+
+.category-dialog {
+    width: 200px;
+}
+
+.category-dialog p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.category-dialog hr {
+    margin-block-start: 0;
+}
+
+.category-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.category-form__buttons {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.category-form__buttons--cancel,
+.category-form__buttons--ok {
+    width: 80px;
+    height: 25px;
+    border-radius: 20px;
+}
+
+.category-list__button {
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 5px 8px;
+    width: 80%;
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.category-list__button:hover {
+    background-color: aliceblue;
+}
+
+.category-list__button--delete {
+    border: none;
+    background: none;
+}
+
+.add-site-container {
+    width: 668px;
+    max-width: calc(100% - 40px);
+    margin: 40px auto;
+    border: 1px solid #222;
+}
+
+.add-site-container h1 {
+    height: 30px;
+    font-size: 17px;
+    padding: 6px 9px;
+    border-bottom: 1px solid #ccc;
+}
+
+.add-site-form {
+    padding: 8px 38px;
+}
+
+.add-site-form__field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.add-site-form__field label {
+    width: 68px;
+    flex-shrink: 0;
+    font-size: 13px;
+    padding-right: 5px;
+}
+
+.add-site-form__field input {
+    flex: 1;
+    height: 19px;
+    border: 1px solid #aaa;
+    padding: 2px 4px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    color: #777;
+}
+
+/*Ademas de lo anterior, se le añade este estilo al campo con textarea*/
+.add-site-form__field:has(textarea) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 3px;
+    margin-bottom: 14px;
+}
+
+.add-site-form__field textarea {
+    width: calc(100% - 12px);
+    height: 123px;
+    resize: none;
+    border: 1px solid #aaa;
+    padding: 6px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    color: #777;
+}
+
+.add-site-form__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 14px;
+}
+
+.add-site-form__buttons button {
+    width: 118px;
+    height: 40px;
+    border: 1px solid #aaa;
+    border-radius: 11px;
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-site-form__buttons--cancel {
+    background-color: #ae0029;
+    border-color: #ae0029;
+}
+
+.add-site-form__buttons--save {
+    background-color: #078bf5;
+    border-color: #078bf5;
+}
+
+.add-site-form__buttons--cancel:hover {
+    background-color: #8c0021;
+}
+
+.add-site-form__buttons--save:hover {
+    background-color: #006fd0;
+}

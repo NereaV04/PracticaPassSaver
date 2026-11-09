@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <script src="javascript.js"></script>
+    <title>Pass Saver</title>
+</head>
+
+
+<body id="add-site-body">
+    <main class="add-site-container">
+        <h1>Pass Server - Add Site</h1>
+
+        <form id="site-form" class="add-site-form">
+             <div class="add-site-form__field">
+                <label for="site-name">Name</label>
+                <input type="text" id="site-name" required>
+            </div>
+
+            <div class="add-site-form__field">
+                <label for="site-url">URL</label>
+                <input type="url" id="site-url" required>
+            </div>
+
+            <div class="add-site-form__field">
+                <label for="site-user">User</label>
+                <input type="text" id="site-user" required>
+            </div>
+
+            <div class="add-site-form__field">
+                <label for="site-password">Password</label>
+                <input type="password" id="site-password" required>
+            </div>
+
+            <div class="add-site-form__field">
+                <label for="site-description">Description</label>
+                <textarea id="site-description"></textarea>
+            </div>
+
+            <div class="add-site-form__buttons">
+                <button type="button" id="cancel-site" class="add-site-form__buttons--cancel">Cancel</button>
+                <button type="submit" class="add-site-form__buttons--save">Save</button>
+            </div>
+        </form>
+
+    </main>
+</body>
+
+
+</html>
