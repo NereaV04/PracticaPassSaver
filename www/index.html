@@ -8,34 +8,18 @@
   <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
   <script src="javascript.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>Pass Saver</title>
 </head>
 
-<body id="index-body">
-  <main>
+<body>
+  <main class="index-container">
 
     <h1>Pass Saver</h1>
 
     <hr>
 
     <button class="add-button" id="add-category">Add Categorie</button>
-
-    <dialog id="category-dialog" class="category-dialog">
-      <p>Nueva categoria</p>
-      <hr>
-      <form id="category-form" class="category-form">
-
-        <label for="category-name">Nombre:</label>
-        <input type="text" id="category-name" name="name" required placeholder="Nombre de la categoria">
-
-        <div class="category-form__buttons">
-          <button type="reset" class="category-form__buttons--cancel"
-            id="category-form__buttons--cancel">Cancel</button>
-          <button type="submit" class="category-form__buttons--ok" id="category-form__buttons--ok">Ok</button>
-        </div>
-
-      </form>
-    </dialog>
 
     <button class="add-button" id="add-site">Add Site</button>
 
