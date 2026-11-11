@@ -58,8 +58,12 @@ window.addEventListener("DOMContentLoaded", async () => {
                                 <td class="sites-table__body">
                                     <div>
                                         <a href="${site.url}" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a>
-                                        <i class="fa-regular fa-trash-can"></i>
-                                        <i class="fa-regular fa-pen-to-square"></i>
+                                        <button class="site-list__button--delete" id="${site.id}">
+                                            <i class="fa-regular fa-trash-can"></i>
+                                        </button>
+                                        <button class="site-list__button--edit" id="${site.id}">
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </button>
                                     </div>
                                 </td>`;
             parent.appendChild(child);
@@ -110,7 +114,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-    drawCategories().catch(error => {
+    drawCategories().catch(() => {
         Swal.fire({
             title: "Error",
             text: "No se han podido cargar las categorías.",
@@ -223,5 +227,57 @@ window.addEventListener("DOMContentLoaded", async () => {
             }
         }
     })
+
+    async function deleteSite(id) {
+        const response = await fetch(`${urlSites}/${id}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error en la petición: ${response.status}.`);
+        }
+    }
+
+    const bodySites = document.getElementById("sites-body");
+    bodySites.addEventListener("click", async (event) => {
+        const btnDeleteSite = event.target.closest(".site-list__button--delete");
+
+        if (btnDeleteSite) {
+            try {
+                const result = await Swal.fire({
+                    title: "¿Seguro que quiere eliminar el sitio?",
+                    text: "Este paso es irrevertible.",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Eliminar",
+                    cancelButtonText: "Cancelar"
+                })
+
+                if (result.isConfirmed) {
+                    await deleteSite(btnDeleteSite.id);
+                    await drawSites(categoryId);
+
+                    Swal.fire({
+                        title: "¡Eliminada!",
+                        text: "El sitio se ha eliminado correctamente.",
+                        icon: "success"
+                    });
+                }
+            } catch (error) {
+                console.error("No se pudo eliminar el sitio:", error);
+
+                Swal.fire({
+                    title: "Error",
+                    text: "No se pudo eliminar el sitio.",
+                    icon: "error"
+                });
+            }
+        }
+    })
+
+
 })
 

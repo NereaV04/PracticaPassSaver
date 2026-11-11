@@ -78,9 +78,12 @@ section > div:last-child {
     cursor: pointer;
 }
 
-.category-list__button--delete {
+.category-list__button--delete,
+.site-list__button--delete,
+.site-list__button--edit {
     border: none;
     background: none;
+    cursor: pointer;
 }
 
 /* Tabla de sitios */
