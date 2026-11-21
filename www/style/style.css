@@ -1,0 +1,217 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20px;
+}
+
+/* Contenedores principales */
+.index-container,
+.add-site-container {
+    box-sizing: border-box;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #222;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+.add-button {
+    width: 120px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: #F0F1FF;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.tables-contain {
+    display: flex;
+    flex-direction: row;
+}
+
+section>div:first-child {
+    flex: 0 0 200px;
+}
+
+section>div:last-child {
+    flex: 1;
+}
+
+/* Tabla de categorías */
+.categories-table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.categories-table__header {
+    width: 100%;
+    padding: 6px;
+    border-bottom: 1px solid black;
+}
+
+.categories-table__container {
+    box-sizing: border-box;
+}
+
+.categories-table__container:hover {
+    background-color: aliceblue;
+}
+
+.categories-table__body {
+    padding-left: 5px;
+}
+
+/* Botones de categorías */
+.category-list__button {
+    width: 78%;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 0;
+    background: none;
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.category-list__button--delete,
+.site-list__button--delete,
+.site-list__button--edit {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* Tabla de sitios */
+.sites-table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.sites-table__header {
+    padding: 15px;
+    border: 1px solid black;
+    background-color: aliceblue;
+}
+
+.sites-table__body {
+    height: 40px;
+    border: 1px solid black;
+}
+
+/* Enlaces */
+a {
+    color: black;
+}
+
+.category-add__buttons--cancel {
+    background-color: #DB0F2E;
+    color: #000000;
+    font-weight: bold;
+}
+
+.category-add__buttons--ok {
+    background-color: #0FDB56;
+    color: #000000;
+    font-weight: bold;
+}
+
+.add-site-container h1 {
+    border-bottom: 1px solid #ccc;
+}
+
+.add-site-form {
+    padding: 8px 38px;
+}
+
+/* Campos del formulario */
+.add-site-form__field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.add-site-form__field label {
+    width: 68px;
+    flex-shrink: 0;
+    margin-left: 5%;
+    padding-right: 5px;
+    font-size: medium;
+}
+
+.add-site-form__field input {
+    flex: 1;
+    min-width: 0;
+    height: 19px;
+    padding: 2px 4px;
+    border: 1px solid #aaa;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    color: #777;
+}
+
+/* Campo específico que contiene el textarea */
+.add-site-form__field:has(textarea) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 3px;
+    margin-bottom: 14px;
+    margin-right: 38px;
+}
+
+.add-site-form__field textarea {
+    box-sizing: border-box;
+    width: calc(100% - 12px);
+    height: 123px;
+    margin-left: 5%;
+    padding: 6px;
+    border: 1px solid #aaa;
+    resize: none;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    color: #777;
+}
+
+.add-site-form__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 14px;
+}
+
+.add-site-form__buttons button {
+    width: 118px;
+    height: 40px;
+    border: 1px solid #aaa;
+    border-radius: 11px;
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-site-form__buttons--cancel {
+    border-color: #ae0029;
+    background-color: #ae0029;
+}
+
+.add-site-form__buttons--save {
+    border-color: #078bf5;
+    background-color: #078bf5;
+}
+
+/* Efectos hover de los botones */
+.add-site-form__buttons--cancel:hover {
+    background-color: #8c0021;
+}
+
+.add-site-form__buttons--save:hover {
+    background-color: #006fd0;
+}

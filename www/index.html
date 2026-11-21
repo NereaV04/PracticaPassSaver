@@ -1,29 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="javascript.js"></script>
+  <title>Pass Saver</title>
 </head>
-<body>
-  <main>
-    <ul></ul>
-  </main>
-  <script>
-    let drawData = (data) => {
-      data.forEach(category => {
-        let parent = document.getElementsByTagName('ul')[0]
-        let child = document.createElement('li')
-        // child.innerText = JSON.stringify(category)
-        child.innerText = category.name
-        parent.appendChild(child)
-      })
-    }
 
-    fetch("http://localhost:3000/categories")
-      .then(res => res.json())
-      .then(data => drawData(data))
-  </script>
+<body>
+  <main class="add-site-index">
+
+    <h1>Pass Saver</h1>
+
+    <hr>
+
+    <button class="add-button" id="add-category">Add Category</button>
+    <button class="add-button" id="add-site">Add Site</button>
+
+    <br><br>
+    <section class="tables-contain">
+
+      <div>
+        <!-- Cattegories table -->
+        <table class="categories-table">
+          <thead>
+            <tr>
+              <th class="categories-table__header">Categories</th>
+            </tr>
+          </thead>
+
+          <tbody id="category-body">
+            <tr>
+              <td class="categories-table__body">sadsad</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <!-- Sites table-->
+        <table class="sites-table">
+          <thead>
+            <tr>
+              <th class="sites-table__header">Sitio</th>
+              <th class="sites-table__header">User</th>
+              <th class="sites-table__header">Created at</th>
+              <th class="sites-table__header">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody id="sites-body">
+            <tr>
+              <td class="sites-table__body">Google</td>
+              <td class="sites-table__body">User</td>
+              <td class="sites-table__body">10/10/2026</td>
+              <td class="sites-table__body">
+                <div>
+                  <a href="${site.url}" target="_blank">
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+  </main>
 </body>
+
 </html>
