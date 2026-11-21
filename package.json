@@ -18,7 +18,8 @@
     "faker": "^6.6.6",
     "live-server": "^1.2.2",
     "sequelize": "^6.25.3",
-    "sqlite3": "^5.1.2"
+    "sqlite3": "^5.1.2",
+    "sweetalert2": "^11.26.25"
   },
   "devDependencies": {
     "sequelize-cli": "^6.5.1"
