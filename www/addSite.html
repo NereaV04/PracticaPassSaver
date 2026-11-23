@@ -18,29 +18,33 @@
         <h1>Pass Server - Add Site</h1>
 
         <form id="site-form" class="add-site-form">
-            <div class="add-site-form__field">
-                <label for="site-name">Name</label>
-                <input class="add-site-form__field--name" type="text" id="site-name" required>
+            <div class="first-row">
+                <div class="add-site-form__field">
+                    <label for="site-name">Name</label>
+                    <input class="add-site-form__field--name" type="text" id="site-name" required>
+                </div>
+
+                <div class="add-site-form__field">
+                    <label for="site-url">URL</label>
+                    <input class="add-site-form__field--url" type="url" id="site-url" required>
+                </div>
             </div>
 
-            <div class="add-site-form__field">
-                <label for="site-url">URL</label>
-                <input class="add-site-form__field--url" type="url" id="site-url" required>
-            </div>
+            <div class="second-row">
+                <div class="add-site-form__field">
+                    <label for="site-user">User</label>
+                    <input class="add-site-form__field--user" type="text" id="site-user" required>
+                </div>
 
-            <div class="add-site-form__field">
-                <label for="site-user">User</label>
-                <input class="add-site-form__field--user" type="text" id="site-user" required>
-            </div>
+                <div class="add-site-form__field">
+                    <label for="site-password">Password</label>
+                    <div class="add-site-form__container">
+                        <input class="add-site-form__container--password" type="password" id="site-password" required>
+                        <button type="button" id="generate-password" class="add-site-form__container--generate">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                        </button>
 
-            <div class="add-site-form__field">
-                <label for="site-password">Password</label>
-                <div class="add-site-form__container">
-                    <input class="add-site-form__container--password" type="password" id="site-password" required>
-                    <button class="add-site-form__container--generate">
-                        <i class="fa-solid fa-arrows-rotate"></i>
-                    </button>
-
+                    </div>
                 </div>
             </div>
 

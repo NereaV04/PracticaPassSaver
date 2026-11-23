@@ -5,6 +5,24 @@ window.addEventListener("DOMContentLoaded", () => {
     const categoryId = new URLSearchParams(window.location.search).get("categoryId");
     console.log(categoryId);
 
+    function generateRandomPassword(length) {
+        const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{}?";
+
+        let password = "";
+        for (let i = 0; i < length; i++) {
+            password += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return password;
+    }
+
+    const btnGeneratePassword = document.getElementById("generate-password");
+    const passwordInput = document.getElementById("site-password");
+
+    btnGeneratePassword.addEventListener("click", () => {
+        passwordInput.value = generateRandomPassword(8);
+        console.log("Contraseña generada:", passwordInput.value);
+    });
+
     async function addSite() {
         const name = document.getElementById("site-name").value.trim();
         const url = document.getElementById("site-url").value.trim();

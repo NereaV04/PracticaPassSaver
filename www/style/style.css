@@ -130,9 +130,23 @@ a {
     padding: 8px 38px;
 }
 
+.first-row, .second-row {
+    display: flex;
+    flex-direction: row;
+    margin-left: 38px;
+}
+
+.add-site-form__container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 14px;
+}
+
 /* Campos del formulario */
 .add-site-form__field {
     display: flex;
+    flex: 1;
     align-items: center;
     margin-bottom: 14px;
 }
