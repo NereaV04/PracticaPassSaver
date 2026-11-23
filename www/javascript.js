@@ -278,5 +278,4 @@ window.addEventListener("DOMContentLoaded", async () => {
         }
     })
 
-
 })

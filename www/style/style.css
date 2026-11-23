@@ -80,7 +80,8 @@ section>div:last-child {
 
 .category-list__button--delete,
 .site-list__button--delete,
-.site-list__button--edit {
+.site-list__button--edit,
+.add-site-form__container--generate {
     border: none;
     background: none;
     cursor: pointer;
@@ -122,18 +123,26 @@ a {
     font-weight: bold;
 }
 
-.add-site-container h1 {
+.add-site-container h1,
+.index-container h1 {
     border-bottom: 1px solid #ccc;
+    margin-block-end: 0.40em;
+}
+
+.add-site-container h2 {
+    margin-block-start: 0;
 }
 
 .add-site-form {
     padding: 8px 38px;
 }
 
-.first-row, .second-row {
+.first-row,
+.second-row {
     display: flex;
     flex-direction: row;
-    margin-left: 38px;
+    margin-bottom: 10px;
+    margin-left: 24px;
 }
 
 .add-site-form__container {
@@ -144,6 +153,27 @@ a {
 }
 
 /* Campos del formulario */
+
+.add-site-form__passwordInput--Ok {
+    flex: 1;
+    min-width: 0;
+    padding: 2px 4px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    color: #777;
+    border: 2px solid green;
+}
+
+.add-site-form__passwordInput--Wrong {
+    flex: 1;
+    min-width: 0;
+    padding: 2px 4px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    color: #777;
+    border: 2px solid red;
+}
+
 .add-site-form__field {
     display: flex;
     flex: 1;
@@ -159,7 +189,10 @@ a {
     font-size: medium;
 }
 
-.add-site-form__field input {
+.add-site-form__field--name,
+.add-site-form__field--url,
+.add-site-form__field--user,
+.add-site-form__field--password {
     flex: 1;
     min-width: 0;
     height: 19px;
@@ -170,12 +203,46 @@ a {
     color: #777;
 }
 
+/* Contenedor del input de contraseña y botón del ojo */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Input de contraseña */
+.input-wrapper input {
+    width: 100%;
+    min-width: 0;
+    padding: 2px 30px 2px 4px;
+}
+
+/* Botón del ojo dentro del input */
+.input-wrapper button {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.input-wrapper button:hover {
+    opacity: 0.7;
+}
+
 /* Campo específico que contiene el textarea */
 .add-site-form__field:has(textarea) {
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
-    margin-top: 3px;
+    margin-top: 20px;
     margin-bottom: 14px;
     margin-right: 38px;
 }

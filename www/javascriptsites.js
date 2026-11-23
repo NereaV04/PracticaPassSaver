@@ -1,27 +1,99 @@
 window.addEventListener("DOMContentLoaded", () => {
-
-    const urlCategories = "http://localhost:3000/categories";
-
     const categoryId = new URLSearchParams(window.location.search).get("categoryId");
     console.log(categoryId);
 
+    const urlCategories = `http://localhost:3000/categories/${categoryId}`;
+
+    function isPasswordFormatValid(password) {
+        const mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const minus = "abcdefghijklmnopqrstuvwxyz";
+        const nums = "0123456789";
+        const simbols = "!@#$%^&*()-_=+[]{}?";
+
+        let tieneMayus = false;
+        let tieneMinus = false;
+        let tieneNums = false;
+        let tieneSimbols = false;
+
+        for (let caracter of password) {
+            if (mayus.includes(caracter)) {
+                tieneMayus = true;
+            }
+
+            if (minus.includes(caracter)) {
+                tieneMinus = true;
+            }
+
+            if (nums.includes(caracter)) {
+                tieneNums = true;
+            }
+
+            if (simbols.includes(caracter)) {
+                tieneSimbols = true;
+            }
+        }
+
+        return tieneMayus && tieneMinus && tieneNums && tieneSimbols;
+
+    }
+
     function generateRandomPassword(length) {
         const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{}?";
+        let password;
 
-        let password = "";
-        for (let i = 0; i < length; i++) {
-            password += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
+        do {
+            password = "";
+
+            for (let i = 0; i < length; i++) {
+                password += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+
+        } while (!isPasswordFormatValid(password))
+
         return password;
     }
 
+    async function getCategoryName(urlCategories) {
+        const response = await fetch(urlCategories);
+        const category = await response.json();
+
+        const categoryName = category.name;
+        console.log("Nombre categoría: " + categoryName);
+
+        return categoryName;
+    }
+
+    const headerWeb = document.getElementById("add-site-header2");
+    getCategoryName(urlCategories).then((result) => headerWeb.innerHTML = 'Add Site - ' + result.charAt(0).toUpperCase() + result.slice(1));
+
     const btnGeneratePassword = document.getElementById("generate-password");
     const passwordInput = document.getElementById("site-password");
-
     btnGeneratePassword.addEventListener("click", () => {
         passwordInput.value = generateRandomPassword(8);
+
+        passwordInput.classList.remove("add-site-form__passwordInput--Wrong");
+        passwordInput.classList.remove("add-site-form__field--password");
+        passwordInput.classList.add("add-site-form__passwordInput--Ok");
+
         console.log("Contraseña generada:", passwordInput.value);
     });
+
+    passwordInput.addEventListener("blur", () => {
+        if (!isPasswordLengthValid()) {
+            passwordInput.classList.add("add-site-form__passwordInput--Wrong");
+            passwordInput.classList.remove("add-site-form__passwordInput--Ok");
+            passwordInput.classList.remove("add-site-form__field--password");
+
+        } else {
+            passwordInput.classList.add("add-site-form__passwordInput--Ok");
+            passwordInput.classList.remove("add-site-form__passwordInput--Wrong");
+            passwordInput.classList.remove("add-site-form__field--password");
+        }
+    });
+
+    function isPasswordLengthValid() {
+        return passwordInput.value.trim().length >= 8;
+    }
 
     async function addSite() {
         const name = document.getElementById("site-name").value.trim();
@@ -70,7 +142,7 @@ window.addEventListener("DOMContentLoaded", () => {
             return false;
         }
 
-        if (password.length < 8) {
+        if (!isPasswordLengthValid()) {
             Swal.fire({
                 icon: "error",
                 title: "Error",
@@ -87,9 +159,9 @@ window.addEventListener("DOMContentLoaded", () => {
             password: password,
             description: description
         };
-        console.log(datos);
+        console.log(datos.password);
 
-        const response = await fetch(`${urlCategories}/${categoryId}`, {
+        const response = await fetch(`${urlCategories}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(datos)

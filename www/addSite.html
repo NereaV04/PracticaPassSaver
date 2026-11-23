@@ -9,13 +9,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
     <script src="javascriptsites.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Pass Saver</title>
+    <title>Pass Server</title>
 </head>
 
 
 <body>
     <main class="add-site-container">
-        <h1>Pass Server - Add Site</h1>
+        <h1>Pass Server</h1>
+        <h2 id="add-site-header2"></h2>
+
 
         <form id="site-form" class="add-site-form">
             <div class="first-row">
@@ -38,12 +40,20 @@
 
                 <div class="add-site-form__field">
                     <label for="site-password">Password</label>
+                    
                     <div class="add-site-form__container">
-                        <input class="add-site-form__container--password" type="password" id="site-password" required>
+                        <div class="input-wrapper">
+                            <button type="button" id="show-password" class="add-site-form__container--generate">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+
+                            <input class="add-site-form__field--password" type="text" id="site-password" required>
+                        </div>
+                        
                         <button type="button" id="generate-password" class="add-site-form__container--generate">
                             <i class="fa-solid fa-arrows-rotate"></i>
                         </button>
-
+                        
                     </div>
                 </div>
             </div>
